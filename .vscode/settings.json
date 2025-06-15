@@ -1,0 +1,7 @@
+{
+  "go.toolsEnvVars": {
+    "go.toolsEnvVars": {
+      "CGO_ENABLED": "1"
+    }
+  }
+}

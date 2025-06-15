@@ -1,0 +1,7 @@
+name: grpc_ffi_client
+
+environment: 
+  sdk: ">=2.17.0 <4.0.0"
+dependencies:
+  grpc: ^4.1.0
+  ffi: ^2.1.3

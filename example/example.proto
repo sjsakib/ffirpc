@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "proto-gen/example";
+
+service ExampleService {
+    rpc GetSubtotal(GetSubtotalRequest) returns (GetSubtotalResponse);
+}
+
+message GetSubtotalRequest {
+    repeated Product products = 1;
+}
+
+message GetSubtotalResponse {
+    double subtotal = 1;
+}
+
+message Product {
+    optional string name = 1;
+    double price = 2;
+    optional Category category = 3;
+}
+
+message Category {
+    optional uint64 id = 1;
+    string name = 2;
+}

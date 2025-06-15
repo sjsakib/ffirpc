@@ -1,0 +1,26 @@
+name: ffi_rpc_client
+description: A Dart client for the FFI RPC server
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  # Core dependencies
+  ffi: ^2.1.3
+  grpc: ^4.1.0
+  http: ^1.1.0
+  json_annotation: ^4.8.1
+  protobuf: ^4.0.0
+  grpc_ffi_client:
+    path: ../../clients/dart
+
+dev_dependencies:
+  # Development dependencies
+  test: ^1.24.0
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
+  lints: ^2.1.0
+
+# Additional configuration
+publish_to: none
