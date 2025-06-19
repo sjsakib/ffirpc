@@ -5,7 +5,6 @@ package main
 import "C"
 
 import (
-	"context"
 	"log"
 	"net"
 
@@ -13,24 +12,6 @@ import (
 	"github.com/sjsakib/ffirpc"
 	"google.golang.org/grpc"
 )
-
-type ExampleService struct {
-	example.ExampleServiceServer
-}
-
-func NewExampleService() *ExampleService {
-	return &ExampleService{}
-}
-
-func (s *ExampleService) GetSubtotal(ctx context.Context, req *example.GetSubtotalRequest) (*example.GetSubtotalResponse, error) {
-	subtotal := 0.0
-	for _, product := range req.Products {
-		subtotal += product.Price
-	}
-	return &example.GetSubtotalResponse{
-		Subtotal: subtotal,
-	}, nil
-}
 
 func init() {
 	exampleService := NewExampleService()
@@ -41,7 +22,7 @@ func init() {
 	log.Println("Service registered")
 }
 
-func main() {
+func main() { // running like a regular grpc server over tcp
 	server := grpc.NewServer()
 
 	exampleServer := NewExampleService()
