@@ -13,7 +13,7 @@ dependencies:
   json_annotation: ^4.8.1
   protobuf: ^4.0.0
   grpc_ffi_client:
-    path: ../../clients/dart
+    path: ../../../clients/dart
 
 dev_dependencies:
   # Development dependencies

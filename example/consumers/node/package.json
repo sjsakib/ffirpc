@@ -6,7 +6,7 @@
   "type": "module",
   "dependencies": {
     "@bufbuild/protobuf": "^2.5.2",
-    "ffi-grpc-client": "file:../../clients/node"
+    "ffi-grpc-client": "file:../../../clients/node"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

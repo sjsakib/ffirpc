@@ -2,18 +2,19 @@ proto-gen:
 	protoc --proto_path=. --go_out=. --go-grpc_out=. example.proto
 
 proto-gen-dart:
-	@mkdir -p ./dart-consumer/proto-gen
-	@protoc --proto_path=. --dart_out=grpc:./dart-consumer/proto-gen/ ./example.proto
+	@mkdir -p ./consumers/dart/proto-gen
+	@protoc --proto_path=. --dart_out=grpc:./consumers/dart/proto-gen/ ./example.proto
 
 proto-gen-node:
-	@mkdir -p ./node-consumer/proto-gen
+	@mkdir -p ./consumers/node/proto-gen
 	@echo "Generating JavaScript protobuf using ts-proto"
 	@protoc \
-  --plugin=protoc-gen-ts_proto=$(shell which protoc-gen-ts_proto) \
-  --ts_proto_out=./node-consumer/proto-gen \
-  --ts_proto_opt=outputServices=grpc-js \
-  --proto_path=. \
-  ./example.proto
+	--plugin=protoc-gen-ts_proto=$(shell which protoc-gen-ts_proto) \
+	--ts_proto_out=./consumers/node/proto-gen \
+	--ts_proto_opt=outputServices=grpc-js \
+	--proto_path=. \
+	--ts_proto_opt=esModuleInterop=true \
+	--ts_proto_opt=esModuleInterop=true \
 
 	@echo "Done"
 
@@ -23,8 +24,8 @@ build:
 
 
 	@echo "Copying binary to consumers"
-	@mkdir -p ./dart-consumer/bin
-	@cp main ./dart-consumer/bin
+	@mkdir -p ./consumers/dart/bin
+	@cp main ./consumers/dart/bin
 
 	@echo "Done"
 

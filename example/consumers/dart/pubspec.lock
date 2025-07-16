@@ -257,7 +257,7 @@ packages:
   grpc_ffi_client:
     dependency: "direct main"
     description:
-      path: "../../clients/dart"
+      path: "../../../clients/dart"
       relative: true
     source: path
     version: "0.0.0"
