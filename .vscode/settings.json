@@ -3,5 +3,8 @@
     "go.toolsEnvVars": {
       "CGO_ENABLED": "1"
     }
-  }
+  },
+  "cSpell.words": [
+    "ffirpc"
+  ]
 }
