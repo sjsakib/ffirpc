@@ -12,6 +12,7 @@ async function main() {
       channelOverride: channel,
     });
 
+    console.log('sending request')
     client.getSubtotal(
       {
         products: [
@@ -34,24 +35,7 @@ async function main() {
         ],
       },
       (err, response) => {
-        console.log({ err, response });
-      }
-    );
-
-    client.getSubtotal(
-      {
-        products: [
-          {
-            name: 'Laptop',
-            price: 999.99,
-            category: {
-              id: 1,
-              name: 'Electronics',
-            },
-          },
-        ],
-      },
-      (err, response) => {
+        console.log('got response')
         console.log({ err, response });
       }
     );

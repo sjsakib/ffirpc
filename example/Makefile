@@ -20,19 +20,18 @@ proto-gen-node:
 
 build:
 	@echo "Building C shared binary"
-	@CGO_ENABLED=1 go build -buildmode=c-shared main.go
+	@CGO_ENABLED=1 go build -buildmode=c-shared -o main .
 
 
 	@echo "Copying binary to consumers"
 	@mkdir -p ./consumers/dart/bin
 	@cp main ./consumers/dart/bin
+	@echo "Success\n"
 
-	@echo "Done"
+	@echo "Building WASM binary for node"
 
-build-wasm:
-	@echo "Building WASM binary"
-	@GOOS=js GOARCH=wasm go build -o main.wasm main-wasm.go
+	@GOOS=js GOARCH=wasm go build -o main.wasm .
 
 	@echo "Copying wasm to consumers"
-	@cp main.wasm ./node-consumer/main.wasm
+	@cp main.wasm ./consumers/node/main.wasm
 	@echo "Done"
