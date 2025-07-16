@@ -24,12 +24,6 @@ So why involve gRPC and not just regular FFI?
 - Easy code generation for the consumers, whereas with regular FFI, wrappers or bindings have to be written/generated
 - If written as a service, can easily be exposed to the internet for environments where FFI is not available or practical
 
-## Architecture
-
-- **Go Server**: Implements gRPC services with FFI exports
-- **WebAssembly/C Shared Library**: Compiles Go code to WASM or shared libraries for cross-platform execution
-- **Language Clients**: Native clients that load WASM and invoke functions via FFI
-
 ## Project Structure
 
 ```
